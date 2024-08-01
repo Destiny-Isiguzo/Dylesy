@@ -3,9 +3,15 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Dylesy - Агентство веб-дизайна и веб-разработки. Мы проектируем и разрабатываем современные, и функциональные веб-сайты для стартапов и малого бизнеса.">
-   <meta name="keywords" content="веб-дизайн, веб-разработка, создание веб-сайтов, агентство веб-дизайна, дизайн веб-сайтов, разработка веб-сайтов">
-   <meta name="author" content="Dylesy">
+   <meta 
+      name="description" 
+      content="Dylesy - Агентство веб-дизайна и веб-разработки. Мы проектируем и разрабатываем современные, и функциональные веб-сайты для стартапов и малого бизнеса."
+   >
+   <meta 
+      name="keywords" 
+      content="веб-дизайн, веб-разработка, создание веб-сайтов, агентство веб-дизайна, дизайн веб-сайтов, разработка веб-сайтов"
+   >
+   <meta name="author" content="Dylesy Агентство">
    <meta name="copyright" content="Dylesy 2024">
    <meta name="robots" content="index, follow">
    <meta name="revisit-after" content="7 days">
@@ -17,7 +23,10 @@
 
 
    <!-- FAVICON -->
-   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+   <link rel="manifest" href="assets/images/site.webmanifest">
    <!-- === -->
 
    <!-- ICON -->
@@ -27,13 +36,63 @@
    <!-- === -->
 
    <link rel="stylesheet" href="styles-components/resets.css">
-   <link rel="stylesheet" href="styles-components/index.css">
+   <link rel="stylesheet" href="styles-components/global.css">
    <link rel="stylesheet" href="styles-components/header.css">
+   <link rel="stylesheet" href="styles-components/hero.css">
 
    <script src="src/app.js" defer></script>
+   <script src="https://unpkg.com/scrollreveal"></script>
+
    <title>Dylesy | Агентство веб-дизайна и разработки</title>
 </head>
 <body>
-   
+   <header class="header" role="banner">
+      <a href="index.html" class="logo-container">
+         <img src="assets/images/logo.png" alt="Dylesy" class="logo">
+      </a>
+
+      <nav class="nav-menu" role="navigation">
+         <ul class="nav-menu-list" role="list">
+            <li class="nav-menu-item" role="listitem">
+               <a href="index.html" class="nav-menu-link nav-menu-link-active">
+                  ГЛАВНАЯ
+               </a>
+            </li>
+
+            <li class="nav-menu-item" role="listitem">
+               <a href="" class="nav-menu-link">
+                  О НАС
+               </a>
+            </li>
+
+            <li class="nav-menu-item" role="listitem">
+               <a href="" class="nav-menu-link">
+                  УСЛУГИ
+               </a>
+            </li>
+            
+            <li class="nav-menu-item" role="listitem">
+               <a href="" class="nav-menu-link">
+                  НАШИ ПРОЕКТЫ
+               </a>
+            </li>
+            
+            <li class="nav-menu-item" role="listitem">
+               <a href="" class="nav-menu-link contact-menu-link">
+                  СВЯЗАТЬСЯ С НАМИ
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+      <div class="hamburger-menu" role="button">
+         <div class="line line1"></div>
+         <div class="line line2"></div>
+      </div>
+   </header>
+
+   <!-- <main class="main" role="main">
+      <img class="hero-image skeleton" data-image="image.jpg" loading="lazy" alt="" />
+   </main> -->
 </body>
 </html>
