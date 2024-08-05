@@ -33,13 +33,40 @@ navMenuLinks.forEach((link) => link.addEventListener('click', linkAction));
 
 
 /**
- * Dynamically add images after skeleton animations
- */
-const imageWrappers = document.querySelectorAll('.hero-image-wrapper');
+ * Header active class
+*/
+const header = document.querySelector('header');
 
-imageWrappers.forEach((wrapper) => {
-   const img = wrapper.querySelector('img');
-   const imagePath = `assets/images/${img.dataset.image}`; // with data-image attribute is set on the img tag
+window.addEventListener('scroll', () => {
+	const scrollHeight = window.scrollY;
+	if (scrollHeight > 40) {
+		header.classList.add('header-active');
+	} else {
+		header.classList.remove('header-active');
+	}
+})
+
+
+/**
+ * Services infinite scroll animation
+*/
+const scrollers = document.querySelectorAll('.scroller-wrapper');
+
+const scrollerAnimation = () => {
+   scrollers.forEach((scroller) => {
+      scroller.setAttribute('data-animated', true);
+   });
+   
+}
+
+
+/**
+ * Dynamically add images after skeleton animation
+ */
+const images = document.querySelectorAll('img[data-image]');
+
+images.forEach((img) => {
+   const imagePath = `assets/images/${img.dataset.image}`;
    const image = new Image();
 
    image.onload = () => {
@@ -47,25 +74,5 @@ imageWrappers.forEach((wrapper) => {
       img.classList.remove('skeleton');
    };
 
-   image.src = imagePath;
+  image.src = imagePath;
 });
-
-
-/**
- * Scroll reveal animation
- */
-const sr = ScrollReveal({
-   origin: 'bottom',
-   distance: '60px',
-   duration: 2500,
-   delay: 400,
-   // reset: true
-});
-
-// sr.reveal(`.home__perfil, .contact__mail`, {origin: 'right'});
-// sr.reveal(`.home__name, .home__info, .contact__social, .contact__data`, {origin: 'left'});
-// sr.reveal(`.services .section__title-2, .projects .section__title-1, .about__container, .footer__container`, {
-//    opacity: 0,
-//    distance: '0px',
-// })
-// sr.reveal(`.services__card, .projects__card`, {interval: 110});

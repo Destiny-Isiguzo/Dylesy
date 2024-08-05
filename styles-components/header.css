@@ -1,58 +1,58 @@
 .header {
-   background-color: var(--color-dark-10);
-   border: var(--header-border);
-   border-radius: var(--br-header);
+   background-color: var(--absolute-white);
+   box-shadow: 0 2px 25px 0 transparent;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding-left: clamp(0.875rem, 0.3028rem + 2.4413vw, 2.5rem);
-   padding-right: clamp(0.875rem, 0.743rem + 0.5634vw, 1.25rem);
-   padding-top: clamp(0.875rem, 0.743rem + 0.5634vw, 1.25rem);
-   padding-bottom: clamp(0.875rem, 0.743rem + 0.5634vw, 1.25rem);
+   padding: clamp(1rem, 0.8592rem + 0.6009vw, 1.4rem) 
+            clamp(0.625rem, -2.5000rem + 13.3333vw, 9.5rem);
    position: sticky;
-   top: clamp(0.625rem, 0.3169rem + 1.3146vw, 1.5rem);
+   top: 0;
+   transition: all var(--transition);
    z-index: var(--z-index-fixed);
+
+}
+
+.header-active {
+   box-shadow: 0 3px 25px 0 rgba(0 0 0 / .05);
+   transition: all var(--transition);
 }
 
 .logo {
-   width: clamp(6.5rem, 5.7958rem + 3.0047vw, 8.5rem);
+   width: 8rem;
    object-fit: cover;
-   /* text-wrap: balance; */
 }
 
 .nav-menu-list {
    display: flex;
    align-items: center;
-   gap: var(--gap-base);
+   gap: .8rem;
 }
 
 .nav-menu-link {
-   background-color: var(--color-dark-06);
-   border-radius: var(--br-10px);
-   color: var(--color-grey-50);
-   font-family: var(--ff-mono);
+   background-color: transparent;
+   border: .55px solid transparent;
+   border-radius: var(--br-8px);
+   color: var(--clr-dark-grey);
+   font-family: var(--ff-mulish);
    font-weight: var(--fw-medium);
-   font-size: var(--fs-s);
-   padding: 0.875rem 1.25rem;
+   font-size: var(--fs-nav);
+   padding: .5rem .7rem;
    transition: all var(--transition);
 }
 
 .nav-menu-link:is(:hover, :active) {
-   color: var(--primary-orange-80);
-}
-
-.contact-menu-link {
-   background-color: var(--primary-orange-60);
-   color: var(--color-dark-06);
-}
-
-.contact-menu-link:is(:hover, :active) {
-   color: var(--color-dark-06);
+   background-color: var(--nav-bg-clr);
+   border: var(--nav-border);
+   color: var(--absolute-black);
 }
 
 .nav-menu-link-active {
-   color: var(--primary-orange-80);
+   background-color: var(--nav-bg-clr);
+   border: var(--nav-border);
+   color: var(--absolute-black);
 }
+
 
 .hamburger-menu {
    cursor: pointer;
@@ -67,18 +67,18 @@
 
 @media screen and (max-width: 61.5em) {
    .nav-menu {
-      background-color: var(--color-dark-10);
-      border: var(--header-border);
-      border-radius: var(--br-header);
-      padding: 1.2rem;
+      background-color: var(--absolute-white);
+      box-shadow: 0 3.5px 25px 0 rgba(0 0 0 / .07);
+      padding: 2rem 1.2rem;
       position: fixed;
-      left: clamp(0.625rem, -1.0915rem + 7.3239vw, 5.5rem);
-      top: 6.5rem;
-      height: 30rem;
-      width: clamp(20rem, 18.2394rem + 7.5117vw, 25rem);
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: clamp(18.5rem, 17.2676rem + 5.2582vw, 22rem);
       transform: translateX(-200%);
       transition: transform var(--nav-menu-transition);
       overflow: hidden;
+      z-index: var(--z-index-fixed);
    }
 
    .nav-menu-list {
@@ -86,10 +86,6 @@
       align-items: center;
       height: 100%;
       width: 100%;
-   }
-
-   .nav-menu-item {
-      width: 80%;
    }
 
    .nav-menu-link {
@@ -109,28 +105,35 @@
    }
 
    .hamburger-menu {
-      background-color: var(--color-dark-06);
+      background-color: var(--nav-bg-clr);
+      border: var(--nav-border);
       border-radius: var(--br-10px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.3rem;
-      padding: 0.625rem;
-      transition: transform var(--nav-menu-transition);
-      width: 2.7rem;
+      align-items: center;
+      gap: .3rem;
+      padding: .625rem;
+      transition: all var(--nav-menu-transition);
+      width: 2.8rem;
       height: 2.7rem;
    }
 
+   .hamburger-menu:hover {
+      background-color: rgba(0 0 0 / .11);
+   }
+
    .line {
-      background-color: var(--color-grey-90);
-      border-radius: 3rem;
+      background-color: var(--clr-dark-grey);
+      border-radius: 5rem;
       width: 100%;
-      height: .2rem;
-      transition: all 0.4s ease;
+      height: .19rem;
+      transition: all var(--nav-menu-transition);
    }
 
    .line2 {
       width: 65%;
+      align-self: flex-start;
    }
 }
 
@@ -144,7 +147,11 @@
 
 .hamburger-menu.open .line2 {
    width: 100%;
-   transform: rotate(45deg) translate(-2.1px, -4.2px);
+   transform: rotate(45deg) translate(-1.9px, -4.2px);
+}
+
+.hamburger-menu.open {
+   padding-right: .74rem;
 }
 
 @keyframes navLinkslideIn {
