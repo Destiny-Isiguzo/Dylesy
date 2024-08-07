@@ -20,7 +20,7 @@ const animateLinks = () => {
          link.classList.remove('nav-menu-link-in');
          link.classList.add('nav-menu-link-out');
       }
-      link.style.animationDelay = `${index * 0.1}s`;
+      link.style.animationDelay = `${index * 0.04}s`;
    });
 };
 
@@ -33,46 +33,54 @@ navMenuLinks.forEach((link) => link.addEventListener('click', linkAction));
 
 
 /**
- * Header active class
-*/
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-	const scrollHeight = window.scrollY;
-	if (scrollHeight > 40) {
-		header.classList.add('header-active');
-	} else {
-		header.classList.remove('header-active');
-	}
-})
-
-
-/**
  * Services infinite scroll animation
 */
 const scrollers = document.querySelectorAll('.scroller-wrapper');
 
 const scrollerAnimation = () => {
    scrollers.forEach((scroller) => {
-      scroller.setAttribute('data-animated', true);
+      const scrollerInner = scroller.querySelector('.scroller-inner');
+      const scrollerContents = Array.from(scrollerInner.children);
+
+      scrollerContents.forEach((content) => {
+         const duplicateContent = content.cloneNode(true);
+         duplicateContent.setAttribute('aria-hidden', true);
+         scrollerInner.appendChild(duplicateContent);
+      });
    });
-   
 }
+
+scrollerAnimation();
 
 
 /**
  * Dynamically add images after skeleton animation
- */
-const images = document.querySelectorAll('img[data-image]');
+*/
+// const imageWrappers = document.querySelectorAll('[data-image-wrapper]');
 
-images.forEach((img) => {
-   const imagePath = `assets/images/${img.dataset.image}`;
-   const image = new Image();
+// imageWrappers.forEach((wrapper) => {
+//   const images = wrapper.querySelectorAll('img[data-image]');
 
-   image.onload = () => {
-      img.src = imagePath;
-      img.classList.remove('skeleton');
-   };
+//    images.forEach((img) => {
+//       const imagePath = `assets/images/${img.dataset.image}`;
+//       const image = new Image();
 
-  image.src = imagePath;
+//       image.onload = () => {
+//          img.src = imagePath;
+//          img.classList.remove('skeleton');
+//       };
+
+//       image.src = imagePath;
+//    });
+// });
+
+// Wait for the page to be fully loaded
+window.addEventListener('load', () => {
+   // Get all elements with skeleton and skeleton-text classes
+   const skeletonElements = document.querySelectorAll('.skeleton, .skeleton-text');
+
+   // Remove the classes from the elements
+   skeletonElements.forEach((element) => {
+      element.classList.remove('skeleton', 'skeleton-text');
+   });
 });
