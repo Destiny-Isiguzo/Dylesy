@@ -48,6 +48,7 @@
    /* FONT SIZE */
    --fs-14px: .875rem;
    --fs-s: clamp(0.875rem, 0.8310rem + 0.1878vw, 1rem); /* 14px - 16px */
+   --fs-text: clamp(0.92rem, 0.8918rem + 0.1202vw, 1rem); /* 14px - 16px */
    --fs-m4: 1.25rem; /* 20px */
    --fs-m3: clamp(1.25rem, 1.2060rem + 0.1878vw, 1.375rem); /* 20px - 22px */
    --fs-m2: clamp(1.75rem, 1.5299rem + 0.9390vw, 2.375rem); /* 28px - 38px */
@@ -63,6 +64,7 @@
    --br-8px: .5rem;
    --br-10px: .624rem;
    --br-12px: .75rem;
+   --br-14px: .875rem;
    --br-16px: 1rem;
 
    --header-border: .063rem solid #1C1C21;

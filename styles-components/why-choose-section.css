@@ -59,31 +59,35 @@
 
 .why-choose-card-text {
    color: var(--clr-grey-70);
-   font-size: var(--fs-s);
+   font-size: var(--fs-text);
    font-family: var(--ff-flex);
+}
 
 
 
-   /* 
-      LAPTOP SCREENS
-      -----------------
-      BREAKPOINT 1250PX
-   */
-   @media (min-width: 78.125em) {
+/* 
+   LAPTOP SCREENS
+   -----------------
+   BREAKPOINT >=1250PX
+*/
+@media (min-width: 78.125em) {
+   .why-choose-card-text {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
    }
+}
 
-  
-   /* 
-      MOBILE SCREENS
-      -----------------
-      BREAKPOINT 1250PX
-   */
-   @media (max-width: 78.125em) {
+
+/* 
+   MOBILE SCREENS
+   -----------------
+   BREAKPOINT <=1250PX
+*/
+@media (max-width: 78.125em) {
+   .why-choose-card-text {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -91,6 +95,8 @@
       -webkit-box-orient: vertical;
    }
 }
+
+
 
 .why-choose-btn {
    display: flex;
