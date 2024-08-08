@@ -75,12 +75,12 @@ scrollerAnimation();
 // });
 
 // Wait for the page to be fully loaded
-window.addEventListener('load', () => {
-   // Get all elements with skeleton and skeleton-text classes
-   const skeletonElements = document.querySelectorAll('.skeleton, .skeleton-text');
+// window.addEventListener('load', () => {
+//    // Get all elements with skeleton and skeleton-text classes
+//    const skeletonElements = document.querySelectorAll('.skeleton, .skeleton-text');
 
-   // Remove the classes from the elements
-   skeletonElements.forEach((element) => {
-      element.classList.remove('skeleton', 'skeleton-text');
-   });
-});
+//    // Remove the classes from the elements
+//    skeletonElements.forEach((element) => {
+//       element.classList.remove('skeleton', 'skeleton-text');
+//    });
+// });
